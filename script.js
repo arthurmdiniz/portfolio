@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     setupFilters();
     setupDarkMode();
     setupScrollAnimations();
-    setupContactForm();
 
     function loadProjects() {
         fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`)
@@ -177,22 +176,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         revealElements.forEach(el => observer.observe(el));
-    }
-
-    function setupContactForm() {
-        const form = document.getElementById('contact-form');
-        
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const message = document.getElementById('message').value;
-                
-                alert(`Obrigado, ${name}! Sua mensagem foi recebida. Entrarei em contato em breve.`);
-                form.reset();
-            });
-        }
     }
 });
