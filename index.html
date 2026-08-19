@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arthur Marques Diniz | Portfólio</title>
+    <meta name="description" content="Portfólio profissional de Arthur Marques Diniz - Especialista em Suporte e Desenvolvimento de Software">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="#inicio" class="nav-logo">AMD</a>
+            <ul class="nav-menu">
+                <li><a href="#inicio" class="nav-link">Início</a></li>
+                <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+                <li><a href="#projetos" class="nav-link">Projetos</a></li>
+                <li><a href="#contato" class="nav-link">Contato</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <p class="hero-subtitle">Olá, eu sou</p>
+                    <h1 class="hero-title">Arthur Marques Diniz</h1>
+                    <p class="hero-description">Especialista em Suporte | Estudante de Desenvolvimento de Software</p>
+                    <div class="hero-buttons">
+                        <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
+                        <a href="#contato" class="btn btn-secondary">Entrar em Contato</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://avatars.githubusercontent.com/u/228599028?v=4" alt="Arthur Marques Diniz" class="avatar">
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre" class="section">
+            <div class="container">
+                <h2 class="section-title">Sobre Mim</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Sou especialista em suporte de sistemas com experiência em resolução de problemas técnicos e atendimento ao cliente. Atualmente, estou em transição de carreira para o desenvolvimento de software, cursando uma segunda graduação na área.</p>
+                        <p>Minha experiência em suporte me dá uma visão única sobre as necessidades dos usuários e a importância de criar soluções robustas e intuitivas. Estou focado em expandir minhas habilidades de programação e contribuir com projetos inovadores.</p>
+                        <div class="about-info">
+                            <div class="info-item">
+                                <span class="info-label">Localização:</span>
+                                <span class="info-value">Brasil</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Experiência:</span>
+                                <span class="info-value">Suporte de Sistemas</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Formação:</span>
+                                <span class="info-value">Desenvolvimento de Software</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="habilidades" class="section section-gray">
+            <div class="container">
+                <h2 class="section-title">Habilidades</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Linguagens de Programação</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">SQL</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Ferramentas & Tecnologias</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">GitHub</span>
+                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">Windows Server</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Competências</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Resolução de Problemas</span>
+                            <span class="skill-tag">Suporte Técnico</span>
+                            <span class="skill-tag">Atendimento ao Cliente</span>
+                            <span class="skill-tag">Trabalho em Equipe</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projetos" class="section">
+            <div class="container">
+                <h2 class="section-title">Projetos</h2>
+                <div class="projects-filters">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="Java">Java</button>
+                    <button class="filter-btn" data-filter="Portugol">Portugol</button>
+                    <button class="filter-btn" data-filter="Python">Python</button>
+                </div>
+                <div class="projects-grid" id="projects-grid">
+                    <div class="loading">Carregando projetos...</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="github-stats" class="section section-gray">
+            <div class="container">
+                <h2 class="section-title">Estatísticas do GitHub</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <img src="https://github-readme-stats.vercel.app/api?username=arthurmdiniz&show_icons=true&theme=blue-grey&hide_border=true&title_color=0066cc" alt="GitHub Stats" class="stats-image">
+                    </div>
+                    <div class="stat-card">
+                        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=arthurmdiniz&layout=compact&theme=blue-grey&hide_border=true&title_color=0066cc" alt="Top Languages" class="stats-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="section">
+            <div class="container">
+                <h2 class="section-title">Contato</h2>
+                <div class="contact-content">
+                    <p class="contact-text">Estou aberto a oportunidades de trabalho e colaborações. Sinta-se à vontade para entrar em contato!</p>
+                    <div class="contact-links">
+                        <a href="https://github.com/arthurmdiniz" target="_blank" class="contact-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            GitHub
+                        </a>
+                        <a href="https://www.100nom.com" target="_blank" class="contact-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                            </svg>
+                            Website
+                        </a>
+                        <a href="mailto:contato@100nom.com" class="contact-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                            Email
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Arthur Marques Diniz. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
