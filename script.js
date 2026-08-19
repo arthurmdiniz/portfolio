@@ -3,10 +3,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const projectsGrid = document.getElementById('projects-grid');
 
     loadProjects();
-
     setupNavigation();
-
     setupFilters();
+    setupDarkMode();
+    setupScrollAnimations();
+    setupContactForm();
 
     function loadProjects() {
         fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`)
@@ -34,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const filteredRepos = repos.filter(repo => !repo.fork);
 
         projectsGrid.innerHTML = filteredRepos.map(repo => `
-            <div class="project-card" data-language="${repo.language || 'Outro'}">
+            <div class="project-card scroll-reveal" data-language="${repo.language || 'Outro'}">
                 <div class="project-header">
                     <svg class="project-icon" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9z"></path>
@@ -63,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `).join('');
 
         updateFilterButtons();
+        setupScrollAnimations();
     }
 
     function setupFilters() {
@@ -94,7 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const filtersContainer = document.querySelector('.projects-filters');
         const existingBtns = filtersContainer.querySelectorAll('.filter-btn');
-        const allBtn = existingBtns[0];
 
         existingBtns.forEach(btn => {
             if (btn.dataset.filter !== 'all') {
@@ -128,14 +129,70 @@ document.addEventListener('DOMContentLoaded', function() {
                 navMenu.classList.remove('active');
             });
         });
+    }
 
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 50) {
-                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
-            } else {
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            }
+    function setupDarkMode() {
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
         });
+
+        function updateThemeIcon(theme) {
+            const sunIcon = themeToggle.querySelector('.sun-icon');
+            const moonIcon = themeToggle.querySelector('.moon-icon');
+            
+            if (theme === 'dark') {
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+            } else {
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+            }
+        }
+    }
+
+    function setupScrollAnimations() {
+        const revealElements = document.querySelectorAll('.scroll-reveal');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => observer.observe(el));
+    }
+
+    function setupContactForm() {
+        const form = document.getElementById('contact-form');
+        
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                alert(`Obrigado, ${name}! Sua mensagem foi recebida. Entrarei em contato em breve.`);
+                form.reset();
+            });
+        }
     }
 });
