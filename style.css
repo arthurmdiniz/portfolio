@@ -92,6 +92,18 @@ body {
     width: auto;
 }
 
+.logo-dark {
+    display: none;
+}
+
+[data-theme="dark"] .logo-light {
+    display: none;
+}
+
+[data-theme="dark"] .logo-dark {
+    display: block;
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
